@@ -1,0 +1,9 @@
+{
+  "name": "garaje-code-pills-lit-dev",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "lit": "^2.4.1"
+  }
+}
