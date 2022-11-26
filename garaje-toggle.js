@@ -11,34 +11,31 @@ export class GarajeToggle extends LitElement {
     }
 
     label {
+      display: flex;
+      align-items: center;
+      width: 180px;
+      height: 80px;
+      padding: 8px;
+      border-radius: 100px;
+      background: MediumTurquoise;
       cursor: pointer;
     }
 
-    .toggle {
-      display: flex;
-      align-items: center;
-      width: 220px;
-      height: 100px;
-      background: MediumTurquoise;
-      background-size: cover;
-      border-radius: 100px;
-    }
-
-    .circle {
-      height: 88px;
-      width: 88px;
+    span {
+      height: 80px;
+      width: 80px;
       border-radius: 100%;
       transition: 0.5s;
       background: #fff;
-      margin-left: 2%;
+      margin-left: 0;
     }
 
-    .toggle:has(:checked) {
+    label:has(:checked) {
       background: DarkSlateGray;
     }
 
-    #toggle:checked ~ .circle {
-      margin-left: 58%;
+    :checked ~ span {
+      margin-left: calc(100% - 84px);
       transition: 0.5s;
     }
   `;
@@ -54,7 +51,7 @@ export class GarajeToggle extends LitElement {
   }
 
   changeBodyBackground() {
-    const bgColor = this.checked ? "Black" : "LightCyan";
+    const bgColor = this.checked ? "Black" : "White";
     document.body.style.transition = "0.5s";
     document.body.style.backgroundColor = bgColor;
   }
@@ -62,10 +59,8 @@ export class GarajeToggle extends LitElement {
   render() {
     return html`
       <label for="toggle">
-        <div class="toggle">
           <input id="toggle" type="checkbox" @change="${this.toggle}" />
-          <div class="circle"></div>
-        </div>
+          <span></span>
       </label>
     `;
   }
